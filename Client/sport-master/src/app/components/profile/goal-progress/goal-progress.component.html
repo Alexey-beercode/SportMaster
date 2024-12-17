@@ -1,0 +1,65 @@
+<div class="goal-progress-container">
+  <div *ngIf="notifications.length > 0" class="notifications-container">
+    <div *ngFor="let notification of notifications" class="notification-card">
+      🎉 {{ notification.message }}
+    </div>
+  </div>
+  <!-- Список целей -->
+  <div *ngIf="goals.length > 0; else noGoals">
+    <div *ngFor="let goal of goals" class="goal-item">
+      <!-- Карточка цели -->
+      <div class="goal-card">
+        <!-- Заголовок цели с типом и датой -->
+        <div class="goal-header">
+          <h3 class="goal-title">
+            {{ getGoalTypeLabel(goal.goalType) }}
+          </h3>
+          <span class="goal-date">Создано: {{ formatDate(goal.createdDate) }}</span>
+        </div>
+
+        <!-- Прогресс по весу -->
+        <div *ngIf="goal.targetWeight" class="goal-section">
+          <p class="goal-label">
+            🎯 Цель по весу: <strong>{{ todayProgress?.weight || 0 }} / {{ goal.targetWeight }} кг</strong>
+          </p>
+          <app-progress-bar
+            [label]="'Прогресс по весу'"
+            [progress]="calculateWeightProgress(goal)"
+            [color]="getProgressColor(calculateWeightProgress(goal))"
+          ></app-progress-bar>
+        </div>
+
+        <!-- Прогресс по потреблению калорий -->
+        <div *ngIf="goal.dailyCalorieIntake" class="goal-section">
+          <p class="goal-label">
+            🍽️ Потреблено калорий:
+            <strong>{{ todayProgress?.caloriesConsumed || 0 }} / {{ goal.dailyCalorieIntake }}</strong>
+          </p>
+          <app-progress-bar
+            [label]="'Прогресс по потреблению калорий'"
+            [progress]="calculateCaloriesConsumedProgress(goal)"
+            [color]="getProgressColor(calculateCaloriesConsumedProgress(goal))"
+          ></app-progress-bar>
+        </div>
+
+        <!-- Прогресс по сжиганию калорий -->
+        <div *ngIf="goal.dailyCalorieBurn" class="goal-section">
+          <p class="goal-label">
+            🏋️ Сожжено калорий:
+            <strong>{{ todayProgress?.caloriesBurned || 0 }} / {{ goal.dailyCalorieBurn }}</strong>
+          </p>
+          <app-progress-bar
+            [label]="'Прогресс по сжиганию калорий'"
+            [progress]="calculateCaloriesBurnedProgress(goal)"
+            [color]="getProgressColor(calculateCaloriesBurnedProgress(goal))"
+          ></app-progress-bar>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Пустое состояние -->
+  <ng-template #noGoals>
+    <p class="no-goals">Целей пока нет</p>
+  </ng-template>
+</div>

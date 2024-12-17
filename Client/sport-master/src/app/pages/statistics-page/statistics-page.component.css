@@ -1,0 +1,28 @@
+.statistics-container {
+  padding: 1.5rem;
+}
+
+.tabs, .time-filters {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.tabs button, .time-filters button {
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: #e0e0e0;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.tabs button.active, .time-filters button.active {
+  background-color: #4caf50;
+  color: white;
+}
+
+.chart-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}

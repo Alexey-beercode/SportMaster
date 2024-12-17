@@ -1,0 +1,17 @@
+<div class="calorie-progress-container">
+  <h3 class="title">Калории</h3>
+
+  <!-- Прогресс по потребленным калориям -->
+  <app-progress-bar
+    label="Потреблено"
+    [progress]="consumedPercentage"
+    color="#4caf50"
+  ></app-progress-bar>
+
+  <!-- Прогресс по сожжённым калориям -->
+  <app-progress-bar
+    label="Сожжено"
+    [progress]="burnedPercentage"
+    color="#ff9800"
+  ></app-progress-bar>
+</div>

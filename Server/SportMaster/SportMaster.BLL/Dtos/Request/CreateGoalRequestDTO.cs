@@ -6,4 +6,5 @@ public class CreateGoalRequestDTO
     public decimal? TargetWeight { get; set; }
     public decimal DailyCalorieIntake { get; set; }
     public decimal DailyCalorieBurn { get; set; }
+    public Guid UserId { get; set; }
 }

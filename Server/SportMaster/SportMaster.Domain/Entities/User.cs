@@ -12,6 +12,7 @@ public class User : BaseEntity
     public decimal Height { get; set; }
     public decimal Weight { get; set; }
     public Gender Gender { get; set; }
-    public DateTime CreatedDate { get; set; }
-    public DateTime UpdatedDate { get; set; }
+    public string ActivityLevel { get; set; } 
+    public int DailyStepGoal { get; set; } // Норма шагов за день
+    public int DailyWaterGoal { get; set; } // Норма воды (в стаканах)
 }

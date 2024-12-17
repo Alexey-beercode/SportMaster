@@ -1,0 +1,39 @@
+<app-header title="Статистика"></app-header>
+
+<div class="statistics-container">
+  <!-- Кнопки переключения между вкладками -->
+  <div class="tabs">
+    <button
+      [class.active]="activeTab === 'activity'"
+      (click)="setTab('activity')"
+    >
+      Активность
+    </button>
+    <button
+      [class.active]="activeTab === 'calories'"
+      (click)="setTab('calories')"
+    >
+      Калории
+    </button>
+  </div>
+
+  <!-- Фильтры времени -->
+  <div class="time-filters">
+    <button (click)="setPeriod('week')" [class.active]="selectedPeriod === 'week'">Неделя</button>
+    <button (click)="setPeriod('month')" [class.active]="selectedPeriod === 'month'">Месяц</button>
+    <button (click)="setPeriod('year')" [class.active]="selectedPeriod === 'year'">Год</button>
+  </div>
+
+  <!-- Вкладка активности -->
+  <app-activity-chart
+    *ngIf="activeTab === 'activity'"
+    [exerciseLogs]="exerciseLogs"
+  ></app-activity-chart>
+
+  <!-- Вкладка калорий -->
+  <app-calories-chart
+    *ngIf="activeTab === 'calories'"
+    [foodLogs]="foodLogs"
+    [exerciseLogs]="exerciseLogs"
+  ></app-calories-chart>
+</div>

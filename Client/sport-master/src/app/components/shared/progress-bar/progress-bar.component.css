@@ -1,0 +1,73 @@
+/* Цветовая палитра */
+:root {
+  --background-color: #f4f4f9;
+  --progress-bg: #e0e0e0;
+  --progress-fill: #4caf50;
+  --text-color: #333333;
+}
+
+.progress-bar-container {
+  margin: 1rem 0;
+  font-family: Arial, sans-serif;
+}
+
+.progress-bar-container .progress-label {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
+}
+
+.progress-bar-container .progress-bar {
+  width: 100%;
+  height: 15px; /* Убедимся, что высота задана */
+  background-color: var(--progress-bg);
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-bar-container .progress-fill {
+  height: 100%; /* Высота всегда 100% от родителя */
+  background-color: var(--progress-fill);
+  transition: width 0.3s ease-in-out;
+  width: 0%; /* Убедимся, что начальное значение нулевое */
+}
+.progress-bar-container {
+  margin: 1rem 0;
+  font-family: Arial, sans-serif;
+}
+
+.progress-label {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 15px;
+  background-color: var(--progress-bg);
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-fill {
+  height: 100%;
+  transition: width 0.3s ease-in-out;
+}
+
+.progress-overflow {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: #f44336; /* Красный цвет для избыточного значения */
+  padding-right: 0.5rem;
+}
+
+

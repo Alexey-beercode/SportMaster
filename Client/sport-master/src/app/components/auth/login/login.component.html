@@ -1,0 +1,36 @@
+
+<div class="login-wrapper">
+  <div class="auth-container">
+    <div class="auth-card">
+      <h2>Вход</h2>
+      <form (ngSubmit)="onSubmit()" class="auth-form">
+        <label for="email">Email</label>
+        <input
+          type="text"
+          id="email"
+          [(ngModel)]="email"
+          name="email"
+          required
+          placeholder="Введите email"
+        />
+
+        <label for="password">Пароль</label>
+        <input
+          type="password"
+          id="password"
+          [(ngModel)]="password"
+          name="password"
+          required
+          placeholder="Введите пароль"
+        />
+
+        <button type="submit" class="btn-submit">Войти</button>
+      </form>
+
+      <p class="register-link">
+        Нет аккаунта ? <a [routerLink]="['/register']">Регистрация</a>
+      </p>
+      <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+<div class="progress-bar-container">
+  <div class="progress-label">
+    {{ label }}: {{ progress.toFixed(1) }}%
+  </div>
+  <div class="progress-bar">
+    <div
+      class="progress-fill"
+      [ngStyle]="{
+        width: progress > 100 ? '100%' : progress + '%',
+        backgroundColor: progress > 100 ? '#f44336' : color
+      }"
+    ></div>
+    <!-- Добавляем индикатор превышения нормы -->
+    <div *ngIf="progress > 100" class="progress-overflow">
+      +{{ (progress - 100).toFixed(1) }}%
+    </div>
+  </div>
+</div>

@@ -1,0 +1,50 @@
+/* Цветовая палитра */
+:root {
+  --primary-color: #4caf50;
+  --secondary-color: #ff9800;
+  --text-color: #333333;
+  --background-color: #f4f4f9;
+  --hover-color: #388e3c;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--background-color);
+  padding: 1rem 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+.header .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.header .nav a {
+  margin: 0 1rem;
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.header .nav a:hover {
+  color: var(--primary-color);
+}
+
+.header .logout-button {
+  background-color: var(--secondary-color);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.header .logout-button:hover {
+  background-color: #e68900;
+}

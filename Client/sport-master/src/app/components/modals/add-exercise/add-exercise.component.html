@@ -1,0 +1,37 @@
+<div class="modal-overlay">
+  <div class="modal-content">
+    <h3 class="modal-title">Добавить упражнение</h3>
+
+    <!-- Тип упражнения -->
+    <label>
+      Тип упражнения:
+      <select [(ngModel)]="selectedExercise" (change)="calculateCalories()" class="exercise-select">
+        <option *ngFor="let exercise of exerciseTypes" [value]="exercise.label">
+          {{ exercise.label }}
+        </option>
+      </select>
+    </label>
+
+    <!-- Продолжительность -->
+    <label>
+      Продолжительность (минуты):
+      <input
+        type="number"
+        [(ngModel)]="duration"
+        (input)="calculateCalories()"
+        placeholder="Введите длительность"
+      />
+    </label>
+
+    <!-- Потраченные калории -->
+    <p *ngIf="caloriesBurned !== null">
+      Потрачено калорий: <strong>{{ caloriesBurned }}</strong>
+    </p>
+
+    <!-- Кнопки -->
+    <div class="modal-buttons">
+      <button (click)="addExercise()" class="confirm-button">Добавить</button>
+      <button (click)="close.emit()" class="cancel-button">Отмена</button>
+    </div>
+  </div>
+</div>

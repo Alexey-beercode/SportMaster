@@ -15,5 +15,7 @@ namespace SportMaster.DAL.Interfaces
         IPersonalDataRepository PersonalData { get; }
         IRecommendationRepository Recommendations { get; }
         ICustomGoalRepository CustomGoals { get; }
+        IWaterLogRepository WaterLogs { get; }
+        IStepLogRepository StepLogs { get; }
     }
 }

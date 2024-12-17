@@ -1,1 +1,36 @@
+:root {
+  --primary-color: #4caf50; /* Зелёный */
+  --secondary-color: #2196f3; /* Голубой */
+  --background-color: #f4f4f9; /* Светлый фон */
+  --card-bg-color: #ffffff; /* Цвет карточек */
+  --progress-bg: #e0e0e0; /* Цвет фона прогресса */
+  --progress-fill: #4caf50; /* Цвет заполнения прогресса */
+  --shadow-color: rgba(0, 0, 0, 0.1); /* Тень */
+  --text-color: #333333; /* Основной текст */
+  --header-color: #2c3e50; /* Тёмно-синий для заголовков */
+  --button-hover-color: #1976d2; /* Цвет кнопок при наведении */
+}
+
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-color);
+  font-family: Arial, sans-serif;
+  color: var(--text-color);
+}
+
+button {
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+p {
+  margin: 0.5rem 0;
+}
 /* You can add global styles to this file, and also import other style files */

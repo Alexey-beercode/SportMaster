@@ -1,0 +1,23 @@
+<div class="water-progress-container">
+  <h3 class="title">Вода</h3>
+
+  <!-- Прогресс по воде -->
+  <app-progress-bar
+    [label]="'Выпито: ' + totalGlasses + ' стаканов'"
+    [progress]="waterPercentage"
+    color="#4caf50"
+  ></app-progress-bar>
+
+  <!-- Кнопка для добавления воды -->
+  <button class="add-button" (click)="openAddWaterModal()">
+    Добавить воду
+  </button>
+
+  <!-- Модалка для добавления воды -->
+  <app-add-water
+    *ngIf="showAddWaterModal"
+    [userId]="userId"
+    (waterAdded)="handleWaterAdded()"
+    (close)="closeAddWaterModal()"
+  ></app-add-water>
+</div>

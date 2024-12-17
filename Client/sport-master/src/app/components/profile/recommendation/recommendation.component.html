@@ -1,0 +1,10 @@
+<div class="recommendation-container" *ngIf="recommendation; else errorTemplate">
+  <h3 class="recommendation-title">🤓 Рекомендация дня</h3>
+  <p class="recommendation-text">{{ recommendation.recommendationText }}</p>
+</div>
+
+<ng-template #errorTemplate>
+  <div class="recommendation-container error">
+    <p class="error-message">❌ {{ errorMessage }}</p>
+  </div>
+</ng-template>

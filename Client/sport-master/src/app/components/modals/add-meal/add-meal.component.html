@@ -1,0 +1,44 @@
+<div class="modal-overlay">
+  <div class="modal-content">
+    <h3 class="modal-title">Добавить приём пищи</h3>
+
+    <label>
+      Тип приёма:
+      <select [(ngModel)]="mealType" class="meal-select">
+        <option *ngFor="let type of mealTypes" [value]="type.value">
+          {{ type.label }}
+        </option>
+      </select>
+    </label>
+
+    <label>
+      Название еды:
+      <input type="text" [(ngModel)]="foodName" placeholder="Введите название" />
+    </label>
+
+    <label>
+      Калории:
+      <input type="number" [(ngModel)]="calories" placeholder="Введите калории" />
+    </label>
+
+    <label>
+      Белки:
+      <input type="number" [(ngModel)]="protein" placeholder="Введите белки" />
+    </label>
+
+    <label>
+      Углеводы:
+      <input type="number" [(ngModel)]="carbs" placeholder="Введите углеводы" />
+    </label>
+
+    <label>
+      Жиры:
+      <input type="number" [(ngModel)]="fat" placeholder="Введите жиры" />
+    </label>
+
+    <div class="modal-buttons">
+      <button (click)="addMeal()" class="confirm-button">Добавить</button>
+      <button (click)="close.emit()" class="cancel-button">Отмена</button>
+    </div>
+  </div>
+</div>

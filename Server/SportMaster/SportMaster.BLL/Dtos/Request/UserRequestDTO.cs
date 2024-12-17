@@ -9,4 +9,7 @@ public class UserRequestDTO
     public decimal Weight { get; set; }
     public string Gender { get; set; }
     public string Password { get; set; }
+    public string ActivityLevel { get; set; } // Коэффициент активности
+    public int DailyStepGoal { get; set; } // Норма шагов за день
+    public int DailyWaterGoal { get; set; } // Норма воды (в стаканах)
 }

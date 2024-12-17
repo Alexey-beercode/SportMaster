@@ -1,0 +1,15 @@
+<div class="modal-overlay">
+  <div class="modal-content">
+    <h3 class="modal-title">Добавить шаги</h3>
+    <input
+      type="number"
+      [(ngModel)]="stepsCount"
+      placeholder="Введите количество шагов"
+      class="input-steps"
+    />
+    <div class="modal-buttons">
+      <button (click)="addSteps()" class="confirm-button">Добавить</button>
+      <button (click)="close.emit()" class="cancel-button">Отмена</button>
+    </div>
+  </div>
+</div>

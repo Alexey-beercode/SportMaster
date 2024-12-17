@@ -1,0 +1,23 @@
+<div class="steps-progress-container">
+  <h3 class="title">Шаги</h3>
+
+  <!-- Прогресс по шагам -->
+  <app-progress-bar
+    [label]="'Пройдено: ' + totalSteps + ' шагов'"
+    [progress]="stepsPercentage"
+    color="#2196f3"
+  ></app-progress-bar>
+
+  <!-- Кнопка для добавления шагов -->
+  <button class="add-button" (click)="openAddStepsModal()">
+    Добавить шаги
+  </button>
+
+  <!-- Модалка для добавления шагов -->
+  <app-add-steps
+    *ngIf="showAddStepsModal"
+    [userId]="userId"
+    (stepsAdded)="handleStepsAdded()"
+    (close)="closeAddStepsModal()"
+  ></app-add-steps>
+</div>

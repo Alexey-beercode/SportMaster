@@ -1,0 +1,137 @@
+
+<div class="register-wrapper">
+  <div class="auth-container">
+    <div class="auth-card">
+      <h2>Регистрация</h2>
+
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="auth-form">
+        <!-- Имя пользователя -->
+        <label for="username">Имя пользователя</label>
+        <input
+          type="text"
+          id="username"
+          formControlName="username"
+          placeholder="Введите имя пользователя"
+        />
+        <div *ngIf="isFieldInvalid('username')" class="error-message">
+          Имя пользователя обязательно
+        </div>
+
+        <!-- Email -->
+        <label for="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          formControlName="email"
+          placeholder="Введите ваш email"
+        />
+        <div *ngIf="isFieldInvalid('email')" class="error-message">
+          Некорректный email
+        </div>
+
+        <!-- Возраст -->
+        <label for="age">Возраст</label>
+        <input
+          type="number"
+          id="age"
+          formControlName="age"
+          placeholder="Введите ваш возраст"
+        />
+        <div *ngIf="isFieldInvalid('age')" class="error-message">
+          Возраст обязателен (минимум 10 лет)
+        </div>
+
+        <!-- Рост -->
+        <label for="height">Рост (см)</label>
+        <input
+          type="number"
+          id="height"
+          formControlName="height"
+          placeholder="Введите ваш рост"
+        />
+        <div *ngIf="isFieldInvalid('height')" class="error-message">
+          Некорректный рост
+        </div>
+
+        <!-- Вес -->
+        <label for="weight">Вес (кг)</label>
+        <input
+          type="number"
+          id="weight"
+          formControlName="weight"
+          placeholder="Введите ваш вес"
+        />
+        <div *ngIf="isFieldInvalid('weight')" class="error-message">
+          Некорректный вес
+        </div>
+
+        <!-- Пол -->
+        <label for="gender">Пол</label>
+        <select id="gender" formControlName="gender">
+          <option *ngFor="let g of genderOptions" [value]="g.value">
+            {{ g.label }}
+          </option>
+        </select>
+        <div *ngIf="isFieldInvalid('gender')" class="error-message">
+          Пол обязателен
+        </div>
+
+        <!-- Уровень активности -->
+        <label for="activityLevel">Уровень активности</label>
+        <select id="activityLevel" formControlName="activityLevel">
+          <option *ngFor="let level of activityLevels" [value]="level.value">
+            {{ level.label }}
+          </option>
+        </select>
+        <div *ngIf="isFieldInvalid('activityLevel')" class="error-message">
+          Уровень активности обязателен
+        </div>
+
+        <!-- Норма шагов -->
+        <label for="dailyStepGoal">Норма шагов за день</label>
+        <input
+          type="number"
+          id="dailyStepGoal"
+          formControlName="dailyStepGoal"
+          placeholder="Введите норму шагов"
+        />
+        <div *ngIf="isFieldInvalid('dailyStepGoal')" class="error-message">
+          Укажите норму шагов (минимум 1000)
+        </div>
+
+        <!-- Норма воды -->
+        <label for="dailyWaterGoal">Норма воды (стаканов)</label>
+        <input
+          type="number"
+          id="dailyWaterGoal"
+          formControlName="dailyWaterGoal"
+          placeholder="Введите норму воды"
+        />
+        <div *ngIf="isFieldInvalid('dailyWaterGoal')" class="error-message">
+          Укажите норму воды (минимум 1 стакан)
+        </div>
+
+        <!-- Пароль -->
+        <label for="password">Пароль</label>
+        <input
+          type="password"
+          id="password"
+          formControlName="password"
+          placeholder="Введите пароль"
+        />
+        <div *ngIf="isFieldInvalid('password')" class="error-message">
+          Пароль должен содержать минимум 6 символов
+        </div>
+
+        <!-- Кнопка регистрации -->
+        <button type="submit" class="btn-submit">Зарегистрироваться</button>
+      </form>
+
+      <!-- Ссылка на вход -->
+      <p class="login-link">
+        Уже есть аккаунт? <a [routerLink]="['/login']">Войти</a>
+      </p>
+      <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+    </div>
+  </div>
+</div>

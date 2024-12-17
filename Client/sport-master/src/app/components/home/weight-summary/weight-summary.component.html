@@ -1,0 +1,9 @@
+<div class="weight-summary-container">
+  <h3 class="title">Вес</h3>
+
+  <div class="weight-info">
+    <p>Текущий вес: <strong>{{ user?.weight || 'Неизвестно' }} кг</strong></p>
+    <p>Цель: <strong>{{ weightGoal?.targetWeight || 'Не задана' }} кг</strong></p>
+    <p>Статус: <strong>{{ getWeightStatus() }}</strong></p>
+  </div>
+</div>

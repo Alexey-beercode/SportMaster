@@ -1,12 +1,19 @@
-﻿namespace SportMaster.BLL.Dtos;
+﻿using SportMaster.Domain.Enums;
+using SportMaster.Domain.Interfaces;
 
-public class UserDto
+namespace SportMaster.BLL.Dtos;
+
+
+public class UserDto 
 {
-    public Guid Id { get; set; }
     public string Username { get; set; }
     public string Email { get; set; }
+    public string PasswordHash { get; set; }
     public int Age { get; set; }
     public decimal Height { get; set; }
     public decimal Weight { get; set; }
-    public string Gender { get; set; }
+    public Gender Gender { get; set; }
+    public string ActivityLevel { get; set; } // Коэффициент активности
+    public int DailyStepGoal { get; set; } // Норма шагов за день
+    public int DailyWaterGoal { get; set; } // Норма воды (в стаканах)
 }

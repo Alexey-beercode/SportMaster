@@ -1,0 +1,35 @@
+﻿version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql-container
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: CHEATS145
+      MYSQL_DATABASE: sport_master
+      MYSQL_USER: root
+      MYSQL_PASSWORD: CHEATS145
+    ports:
+      - "3307:3306" # Внешний порт 3307, внутренний 3306
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+  sport-master-app:
+    build:
+      context: ./Server/SportMaster # Контекст сборки, где находится Dockerfile
+      dockerfile: Dockerfile
+    container_name: sport-master-app
+    restart: always
+    environment:
+      - ASPNETCORE_URLS=http://+:5129
+      - ASPNETCORE_ENVIRONMENT=Development
+      # Строка подключения должна указывать на mysql-сервис из Docker Compose
+      - ConnectionStrings__ConnectionString=Server=mysql;Port=3306;Database=sport_master;User=root;Password=CHEATS145;
+    ports:
+      - "5129:5129" # Порт приложения
+    depends_on:
+      - mysql
+
+volumes:
+  mysql-data:

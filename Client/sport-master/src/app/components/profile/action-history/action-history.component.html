@@ -1,0 +1,26 @@
+<!-- Бэкдроп для закрытия модалки -->
+<div class="backdrop" (click)="closeModal()">
+  <div class="modal action-history-modal" (click)="$event.stopPropagation()">
+    <h2 class="modal-title">История действий</h2>
+
+    <!-- Содержимое модалки -->
+    <div *ngIf="actionHistory.length > 0; else noData">
+      <ul class="history-list">
+        <li *ngFor="let action of actionHistory" class="history-item">
+          <div class="action-date">{{ formatDate(action.actionDate) }}</div>
+          <div class="action-content">
+            <strong>{{ getActionLabel(action.actionType) }}</strong> - {{ action.description }}
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Пустое состояние -->
+    <ng-template #noData>
+      <p class="no-data">Нет доступных данных.</p>
+    </ng-template>
+
+    <!-- Кнопка закрытия -->
+    <button class="close-button" (click)="closeModal()">Закрыть</button>
+  </div>
+</div>

@@ -16,9 +16,12 @@ public class ApplicationDbContext : DbContext
     public DbSet<PersonalData> PersonalData { get; set; }
     public DbSet<Recommendation> Recommendations { get; set; }
     public DbSet<CustomGoal> CustomGoals { get; set; }
+    public DbSet<WaterLog> WaterLogs { get; set; }
+    public DbSet<StepLog> StepLogs { get; set; }
 
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
     {
+        Database.EnsureCreated();
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)

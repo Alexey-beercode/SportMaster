@@ -1,0 +1,48 @@
+<div class="home-container">
+  <!-- Шапка -->
+  <app-header></app-header>
+
+  <!-- Основной контент -->
+  <main class="main-content">
+    <div class="column">
+      <div class="card">
+        <app-weight-summary [userId]="userId"></app-weight-summary>
+      </div>
+      <div class="card">
+        <app-calorie-progress [userId]="userId"></app-calorie-progress>
+      </div>
+    </div>
+
+    <div class="column">
+      <div class="card">
+        <app-steps-progress [userId]="userId" ></app-steps-progress>
+      </div>
+      <div class="card">
+        <app-water-progress [userId]="userId"></app-water-progress>
+      </div>
+    </div>
+  </main>
+
+  <!-- Панель действий -->
+  <section class="action-panel">
+    <button (click)="openAddMealModal()">Добавить приём пищи</button>
+    <button (click)="openAddExerciseModal()">Добавить упражнение</button>
+  </section>
+
+  <!-- Модалки -->
+  <app-add-meal
+    *ngIf="showAddMealModal"
+    [userId]="userId"
+    (mealAdded)="closeAddMealModal()"
+    (close)="closeAddMealModal()"
+  ></app-add-meal>
+
+  <app-add-exercise
+    *ngIf="showAddExerciseModal"
+    [userId]="userId"
+    (exerciseAdded)="closeAddExerciseModal()"
+    (close)="closeAddExerciseModal()"
+  ></app-add-exercise>
+
+  <!-- Футер -->
+</div>

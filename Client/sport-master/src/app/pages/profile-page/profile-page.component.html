@@ -1,0 +1,66 @@
+<!-- Хедер -->
+<app-header title="Профиль"></app-header>
+
+<div class="profile-container">
+  <!-- Карточка с информацией о пользователе -->
+  <section class="user-info-card" *ngIf="userData">
+    <h2 class="section-title">👤 Информация о пользователе</h2>
+    <p><strong>Имя пользователя:</strong> {{ userData.username }}</p>
+    <p><strong>Email:</strong> {{ userData.email }}</p>
+    <p><strong>Возраст:</strong> {{ userData.age }} лет</p>
+    <p><strong>Рост:</strong> {{ userData.height }} см</p>
+    <p><strong>Вес:</strong> {{ userData.weight }} кг</p>
+    <p><strong>Цель по шагам:</strong> {{ userData.dailyStepGoal }} шагов</p>
+    <p><strong>Цель по воде:</strong> {{ userData.dailyWaterGoal }} стаканов</p>
+
+    <button class="history-button" (click)="openEditModal()">✏️ Редактировать</button>
+    <button class="history-button" (click)="openActionHistoryModal()">🕒 История действий</button>
+  </section>
+
+  <!-- Модалка редактирования профиля -->
+  <app-edit-user-modal
+    *ngIf="isEditModalOpen"
+    [userData]="userData!"
+    (close)="closeEditModal()"
+  ></app-edit-user-modal>
+
+  <!-- Модалка истории действий -->
+  <app-action-history-modal
+    *ngIf="showActionHistoryModal"
+    [userId]="userId"
+    (close)="closeActionHistoryModal()"
+  ></app-action-history-modal>
+
+  <!-- Блок целей пользователя -->
+  <section class="goals-section">
+    <h2 class="section-title">🎯 Ваши цели</h2>
+
+    <!-- Кнопка для добавления новой цели -->
+    <button class="add-goal-button" (click)="openAddGoalModal()">
+      ➕ Добавить цель
+    </button>
+
+    <!-- Список целей -->
+    <div *ngIf="goals.length > 0; else noGoals">
+      <app-goal-progress
+      ></app-goal-progress>
+    </div>
+    <ng-template #noGoals>
+      <p>Цели пока не заданы.</p>
+    </ng-template>
+  </section>
+
+  <!-- Компонент модалки добавления цели -->
+  <app-add-goal
+    *ngIf="showAddGoalModal"
+    [userId]="userId"
+    (goalAdded)="onGoalAdded()"
+    (close)="closeAddGoalModal()"
+  ></app-add-goal>
+
+  <!-- Блок рекомендаций -->
+  <section class="recommendations-section">
+    <h2 class="section-title">📢 Рекомендация</h2>
+    <app-recommendation [userId]="userId"></app-recommendation>
+  </section>
+</div>
